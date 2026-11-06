@@ -17,9 +17,11 @@
 
 需要 Apple Silicon Mac 和 **DeepSeek Harness 0.2.2-rc.1** 的 Web profile。
 
-在 DSH 的「插件管理」选择安装，将 [Mac 安装包](https://github.com/GTC2080/dsh-interior-studio/releases/download/v0.1.0-dev.38/dsh-interior-studio-0.1.0-dev.38-macos-arm64.tgz) 的链接粘贴到安装框并确认。重启 DSH Web 后新建「设计」会话。也可以先下载该文件，再在安装框填写其本机绝对路径。
+1. 下载 [Mac 插件包](https://github.com/GTC2080/dsh-interior-studio/releases/download/v0.1.0-dev.38/dsh-interior-studio-0.1.0-dev.38-macos-arm64.tgz)，保留 `.tgz` 文件，无需解压。
+2. 在 Finder 选中下载的文件，按 **⌥⌘C** 复制本机路径。在 **DSH → 插件管理 → 安装** 的「包名或地址」中填入这个文件路径并确认。
+3. 重启 DSH Web，新建「设计」会话。设计操作需要 Blender 时，插件会自动从包内启动它。
 
-**这个包自带官方 Blender 4.5.15 LTS 和 DXF 依赖。** Blender 随插件存放，由 DSH 在后台启动。无需额外下载或安装 Blender、Python，也无需运行源码准备脚本。包内包含基础材质，可用参数构件建模或导入自己的资源。旧工程若使用了可选家具或贴图，需要本机仍有相应素材。
+**这个包自带官方 Blender 4.5.15 LTS 和 DXF 依赖。** 无需额外下载或安装 Blender、Python，也无需运行源码准备脚本。包内包含基础材质，可用参数构件建模或导入自己的资源。旧工程若使用了可选家具或贴图，需要本机仍有相应素材。
 
 命令行也可安装已下载的包：`dsh plugin --profile web add /absolute/path/to/dsh-interior-studio-0.1.0-dev.38-macos-arm64.tgz`。从 DSH 移除插件时，本地工程保留。
 
