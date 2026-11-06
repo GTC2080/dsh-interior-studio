@@ -1,0 +1,26 @@
+[
+  {
+    "file": "ezdxf-1.4.5-py3-none-any.whl",
+    "sha256": "70a79ec7d40990f60453e3c87ffe9f668907ee061cf6f4c0a3794d032ec2b40e",
+    "url": "https://files.pythonhosted.org/packages/fb/d7/9f420747a1edf562cabff228f8d1f7a16530ad021ea6f84c775ca15dec9b/ezdxf-1.4.5-py3-none-any.whl",
+    "bytes": 1333303
+  },
+  {
+    "file": "fonttools-4.60.1-py3-none-any.whl",
+    "sha256": "906306ac7afe2156fcf0042173d6ebbb05416af70f6b370967b47f8f00103bbb",
+    "url": "https://files.pythonhosted.org/packages/c7/93/0dd45cd283c32dea1545151d8c3637b4b8c53cdb3a625aeb2885b184d74d/fonttools-4.60.1-py3-none-any.whl",
+    "bytes": 1143175
+  },
+  {
+    "file": "pyparsing-3.2.5-py3-none-any.whl",
+    "sha256": "e38a4f02064cf41fe6593d328d0512495ad1f3d8a91c4f73fc401b3079a59a5e",
+    "url": "https://files.pythonhosted.org/packages/10/5e/1aa9a93198c6b64513c9d7752de7422c06402de6600a8767da1524f9570b/pyparsing-3.2.5-py3-none-any.whl",
+    "bytes": 113890
+  },
+  {
+    "file": "typing_extensions-4.15.0-py3-none-any.whl",
+    "sha256": "f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548",
+    "url": "https://files.pythonhosted.org/packages/18/67/36e9267722cc04a6b9f15c7f3441c2363321a3ea07da7ae0c0707beb2a9c/typing_extensions-4.15.0-py3-none-any.whl",
+    "bytes": 44614
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "sources": [
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "02523aec3e4c4580102d996d1b6a71fbe062e03f",
+      "path": "skill/SKILL.src.md",
+      "url": "https://raw.githubusercontent.com/pbakaus/impeccable/02523aec3e4c4580102d996d1b6a71fbe062e03f/skill/SKILL.src.md",
+      "bytes": 12459,
+      "sha256": "a2c627ba2fbfb0697921ff663b9ea9dbff6584e0fb23977a7185026d07131264"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "02523aec3e4c4580102d996d1b6a71fbe062e03f",
+      "path": "skill/reference/new-work.md",
+      "url": "https://raw.githubusercontent.com/pbakaus/impeccable/02523aec3e4c4580102d996d1b6a71fbe062e03f/skill/reference/new-work.md",
+      "bytes": 64190,
+      "sha256": "e10eea2f3c6bf670b60268ae4a52c914c1535ef87cdea6d88ccb436d2f709e45"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "02523aec3e4c4580102d996d1b6a71fbe062e03f",
+      "path": "skill/reference/critique.md",
+      "url": "https://raw.githubusercontent.com/pbakaus/impeccable/02523aec3e4c4580102d996d1b6a71fbe062e03f/skill/reference/critique.md",
+      "bytes": 48194,
+      "sha256": "f2ece6380e378ab644d0508adf10e213eb2d6e241e3d7339727fb8e61cd2d39b"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "02523aec3e4c4580102d996d1b6a71fbe062e03f",
+      "path": "skill/reference/typeset.md",
+      "url": "https://raw.githubusercontent.com/pbakaus/impeccable/02523aec3e4c4580102d996d1b6a71fbe062e03f/skill/reference/typeset.md",
+      "bytes": 6263,
+      "sha256": "925720c1d610d2a08a6811001303f395e4b2c971ef3d2506fbce43b2a1303152"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "02523aec3e4c4580102d996d1b6a71fbe062e03f",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/pbakaus/impeccable/02523aec3e4c4580102d996d1b6a71fbe062e03f/LICENSE",
+      "bytes": 10766,
+      "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "commit": "02523aec3e4c4580102d996d1b6a71fbe062e03f",
+      "path": "NOTICE.md",
+      "url": "https://raw.githubusercontent.com/pbakaus/impeccable/02523aec3e4c4580102d996d1b6a71fbe062e03f/NOTICE.md",
+      "bytes": 503,
+      "sha256": "c60a093c2845fd9fb82f9c6f742ece31f379f8190b535309d32d66c45ccffdcb"
+    },
+    {
+      "repo": "anthropics/skills",
+      "commit": "ca45fc496a3436251f191354091d557da31c15b5",
+      "path": "skills/frontend-design/SKILL.md",
+      "url": "https://raw.githubusercontent.com/anthropics/skills/ca45fc496a3436251f191354091d557da31c15b5/skills/frontend-design/SKILL.md",
+      "bytes": 9390,
+      "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+    },
+    {
+      "repo": "anthropics/skills",
+      "commit": "ca45fc496a3436251f191354091d557da31c15b5",
+      "path": "skills/frontend-design/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/anthropics/skills/ca45fc496a3436251f191354091d557da31c15b5/skills/frontend-design/LICENSE.txt",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    }
+  ],
+  "adaptedFiles": [
+    "skills/studio-aesthetic-review/references/design-principles.md",
+    "skills/studio-aesthetic-review/references/type-and-color.md"
+  ],
+  "excluded": "No upstream executables, browser automation, agents, telemetry, installation hooks, fonts or image assets included"
+}

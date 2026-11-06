@@ -1,0 +1,133 @@
+{
+  "name": "对话 CAD 测试",
+  "kind": "interior",
+  "expectedRevision": 0,
+  "width": 8,
+  "depth": 6,
+  "height": 2.8,
+  "thickness": 0.2,
+  "floorMaterial": "wood-floor",
+  "assumptions": [
+    "布局与家具为待确认建议"
+  ],
+  "walls": [
+    {
+      "key": "south",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "key": "east",
+      "points": [
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "key": "north",
+      "points": [
+        [
+          8,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "key": "west",
+      "points": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "key": "partition",
+      "points": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          6
+        ]
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "wall": "south",
+      "kind": "door",
+      "start": 1,
+      "width": 1,
+      "top": 2.1
+    },
+    {
+      "wall": "partition",
+      "kind": "door",
+      "start": 2,
+      "width": 1,
+      "top": 2.1
+    },
+    {
+      "wall": "north",
+      "kind": "window",
+      "start": 1,
+      "width": 2,
+      "sill": 0.9,
+      "top": 2.1
+    }
+  ],
+  "rooms": [
+    {
+      "name": "客厅",
+      "point": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "卧室",
+      "point": [
+        6,
+        3
+      ],
+      "material": "oak"
+    }
+  ],
+  "furniture": [
+    {
+      "asset": "sofa",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "asset": "bed",
+      "x": 6,
+      "y": 3
+    }
+  ]
+}

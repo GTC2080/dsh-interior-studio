@@ -1,0 +1,14 @@
+node_modules/
+.dev/
+dist/
+evidence/
+.DS_Store
+__pycache__/
+.env
+.env.*
+runtime/*.dmg
+runtime/*.zip
+runtime/Blender.app/
+runtime/vendor/
+runtime/.prepare-*/
+/fixtures/public/floorplan.dxf

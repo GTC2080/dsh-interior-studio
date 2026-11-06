@@ -1,0 +1,10 @@
+{
+  "package": "clipper2-ts",
+  "version": "2.0.1-18",
+  "repository": "https://github.com/countertype/clipper2-ts",
+  "commit": "bf6e0303217bdffcbe2f03ab7f6218194df8e7e4",
+  "license": "BSL-1.0",
+  "integrity": "sha512-WuRO1ZHzyYTVHY78r4wVWVydvQ+1lx9qZ+DeZa/8zhvrxIgCVzElJ6lwSMGtUUKFPefhvfJsHZ5C9RNkgisCOQ==",
+  "distribution": "Bundled, unmodified API selected by esbuild into lib/geometry-kernel.js. Development dependency only; no runtime download.",
+  "scope": "Closed polygon offsets; bounded double coordinates and 1 micrometre rounding. Not a general CAD kernel or open spline offset."
+}

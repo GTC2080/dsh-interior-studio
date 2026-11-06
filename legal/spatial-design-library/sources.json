@@ -1,0 +1,166 @@
+{
+  "format": 1,
+  "sources": [
+    {
+      "repo": "wuciyouci/interior-design-skill",
+      "commit": "5d4c7bfbc84a383e8d442323f9d7f7d8fb616131",
+      "path": "skills/interior-styles/SKILL.md",
+      "upstreamBlob": "129978085001ceaa0ab3d4342564e0f7f5dfba96",
+      "url": "https://github.com/wuciyouci/interior-design-skill/blob/5d4c7bfbc84a383e8d442323f9d7f7d8fb616131/skills/interior-styles/SKILL.md",
+      "adaptedFiles": [
+        "skills/studio-interior-style/SKILL.md",
+        "skills/studio-interior-style/references/style-and-materials.md"
+      ]
+    },
+    {
+      "repo": "wuciyouci/interior-design-skill",
+      "commit": "5d4c7bfbc84a383e8d442323f9d7f7d8fb616131",
+      "path": "skills/interior-materials/SKILL.md",
+      "upstreamBlob": "082438f70a4f6447a4e63d47c1a2c4c112c98cd3",
+      "url": "https://github.com/wuciyouci/interior-design-skill/blob/5d4c7bfbc84a383e8d442323f9d7f7d8fb616131/skills/interior-materials/SKILL.md",
+      "adaptedFiles": [
+        "skills/studio-interior-style/SKILL.md",
+        "skills/studio-interior-style/references/style-and-materials.md"
+      ]
+    },
+    {
+      "repo": "wuciyouci/interior-design-skill",
+      "commit": "5d4c7bfbc84a383e8d442323f9d7f7d8fb616131",
+      "path": "LICENSE",
+      "upstreamBlob": "57d597a5b9572c0317ffa0143a82c276941a46ac",
+      "url": "https://github.com/wuciyouci/interior-design-skill/blob/5d4c7bfbc84a383e8d442323f9d7f7d8fb616131/LICENSE",
+      "adaptedFiles": [
+        "skills/studio-interior-style/SKILL.md",
+        "skills/studio-interior-style/references/style-and-materials.md"
+      ]
+    },
+    {
+      "repo": "gujun1502/arch-skills",
+      "commit": "478d5ae32806e5a95dfcbeb70ba5a68126c22e9e",
+      "path": "skills/asset-management-interior/references/concept-engine.md",
+      "upstreamBlob": "bc99e863f4fe847cc489ae643fda69524d59b930",
+      "url": "https://github.com/gujun1502/arch-skills/blob/478d5ae32806e5a95dfcbeb70ba5a68126c22e9e/skills/asset-management-interior/references/concept-engine.md",
+      "adaptedFiles": [
+        "skills/studio-design-concept/SKILL.md",
+        "skills/studio-design-concept/references/concept-and-moodboard.md"
+      ]
+    },
+    {
+      "repo": "gujun1502/arch-skills",
+      "commit": "478d5ae32806e5a95dfcbeb70ba5a68126c22e9e",
+      "path": "skills/moodboard-aesthetic-iteration/SKILL.md",
+      "upstreamBlob": "1a9aaa5c3e33be3bfe9637f3647c786eae3c925c",
+      "url": "https://github.com/gujun1502/arch-skills/blob/478d5ae32806e5a95dfcbeb70ba5a68126c22e9e/skills/moodboard-aesthetic-iteration/SKILL.md",
+      "adaptedFiles": [
+        "skills/studio-design-concept/SKILL.md",
+        "skills/studio-design-concept/references/concept-and-moodboard.md"
+      ]
+    },
+    {
+      "repo": "gujun1502/arch-skills",
+      "commit": "478d5ae32806e5a95dfcbeb70ba5a68126c22e9e",
+      "path": "LICENSE",
+      "upstreamBlob": "1f29a30a809d685aeabb9c5839776ed0d64de115",
+      "url": "https://github.com/gujun1502/arch-skills/blob/478d5ae32806e5a95dfcbeb70ba5a68126c22e9e/LICENSE",
+      "adaptedFiles": [
+        "skills/studio-design-concept/SKILL.md",
+        "skills/studio-design-concept/references/concept-and-moodboard.md"
+      ]
+    },
+    {
+      "repo": "Abhinavbwj/Skills-Architects",
+      "commit": "30a0845dddcaebd765fc396059573d02e99c5b63",
+      "path": "skills/design-theory/SKILL.md",
+      "upstreamBlob": "db06fde1e71f98a29c1f428f04d937c85c3aec2e",
+      "url": "https://github.com/Abhinavbwj/Skills-Architects/blob/30a0845dddcaebd765fc396059573d02e99c5b63/skills/design-theory/SKILL.md",
+      "adaptedFiles": [
+        "skills/studio-spatial-composition/SKILL.md",
+        "skills/studio-spatial-composition/references/composition-and-precedents.md"
+      ]
+    },
+    {
+      "repo": "Abhinavbwj/Skills-Architects",
+      "commit": "30a0845dddcaebd765fc396059573d02e99c5b63",
+      "path": "LICENSE",
+      "upstreamBlob": "9e276b34cb24601f753eb75bada63e3ce977f69a",
+      "url": "https://github.com/Abhinavbwj/Skills-Architects/blob/30a0845dddcaebd765fc396059573d02e99c5b63/LICENSE",
+      "adaptedFiles": [
+        "skills/studio-spatial-composition/SKILL.md",
+        "skills/studio-spatial-composition/references/composition-and-precedents.md"
+      ]
+    },
+    {
+      "repo": "sixtysevenlf/dsh-skill-blender-modeling",
+      "commit": "10d78cd1dd252bb09436d2a365d549b2b5910b10",
+      "path": "SKILL.md",
+      "upstreamBlob": "4c4ca9cb18b7d6cea2e700bd88821f73a66eece1",
+      "url": "https://github.com/sixtysevenlf/dsh-skill-blender-modeling/blob/10d78cd1dd252bb09436d2a365d549b2b5910b10/SKILL.md",
+      "adaptedFiles": [
+        "skills/studio-detail-modeling/references/shape-and-modifiers.md",
+        "skills/studio-detail-modeling/references/reference-proportions.md"
+      ]
+    },
+    {
+      "repo": "sixtysevenlf/dsh-skill-blender-modeling",
+      "commit": "10d78cd1dd252bb09436d2a365d549b2b5910b10",
+      "path": "NOTICE.md",
+      "upstreamBlob": "97db114becec955b6c281f22c78a9b844cda7e13",
+      "url": "https://github.com/sixtysevenlf/dsh-skill-blender-modeling/blob/10d78cd1dd252bb09436d2a365d549b2b5910b10/NOTICE.md",
+      "adaptedFiles": [
+        "skills/studio-detail-modeling/references/shape-and-modifiers.md",
+        "skills/studio-detail-modeling/references/reference-proportions.md"
+      ]
+    },
+    {
+      "repo": "sixtysevenlf/dsh-skill-blender-modeling",
+      "commit": "10d78cd1dd252bb09436d2a365d549b2b5910b10",
+      "path": "LICENSE",
+      "upstreamBlob": "b346592b3fcef39dae9c274eba79410fb5130678",
+      "url": "https://github.com/sixtysevenlf/dsh-skill-blender-modeling/blob/10d78cd1dd252bb09436d2a365d549b2b5910b10/LICENSE",
+      "adaptedFiles": [
+        "skills/studio-detail-modeling/references/shape-and-modifiers.md",
+        "skills/studio-detail-modeling/references/reference-proportions.md"
+      ]
+    },
+    {
+      "repo": "RobLe3/cc-blender-skill",
+      "commit": "a2634b588e80265e796aa53f8ab178d75105c2af",
+      "path": "LICENSE",
+      "upstreamBlob": "3ecc5d3f39fce33e91b7101ed3eab5ec4bc3077e",
+      "url": "https://github.com/RobLe3/cc-blender-skill/blob/a2634b588e80265e796aa53f8ab178d75105c2af/LICENSE",
+      "adaptedFiles": [
+        "skills/studio-detail-modeling/references/shape-and-modifiers.md",
+        "skills/studio-detail-modeling/references/reference-proportions.md"
+      ]
+    },
+    {
+      "repo": "arjun988/blender-skills",
+      "commit": "8f778d2405a214b508d4c7d80742be8e43acdd52",
+      "path": "LICENSE",
+      "upstreamBlob": "576f7bc8a82e02a0d09a6f955612050cf15873a8",
+      "url": "https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/LICENSE",
+      "adaptedFiles": [
+        "skills/studio-detail-modeling/references/shape-and-modifiers.md",
+        "skills/studio-detail-modeling/references/reference-proportions.md"
+      ]
+    }
+  ],
+  "licenses": [
+    "interior-design-MIT.txt",
+    "arch-skills-LICENSE.txt",
+    "Skills-Architects-MIT.txt",
+    "dsh-skill-blender-modeling-MIT.txt",
+    "dsh-skill-blender-modeling-NOTICE.md",
+    "cc-blender-skill-MIT.txt",
+    "blender-skills-MIT.txt"
+  ],
+  "excluded": [
+    "upstream executables and plugin-specific tools",
+    "upstream images, fonts, case files and full manuals",
+    "unverified engineering or market-ranking thresholds",
+    "zwl0520/codex-blender-skill source text, scripts, models and images"
+  ],
+  "independentFiles": [
+    "skills/studio-realism/SKILL.md"
+  ]
+}

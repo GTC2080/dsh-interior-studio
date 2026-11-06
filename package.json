@@ -1,0 +1,87 @@
+{
+  "name": "dsh-interior-studio",
+  "version": "0.1.0-dev.37",
+  "description": "Local editable interior and exhibition scenes for DeepSeek Harness",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./tools": "./src/tools.js",
+    "./client": "./lib/client.js",
+    "./skills": "./src/skills.js",
+    "./skill-search": "./src/skill-search.js"
+  },
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-controller"
+      ]
+    }
+  },
+  "files": [
+    "index.js",
+    "src",
+    "lib",
+    "worker",
+    "skills",
+    "assets",
+    "runtime/Blender.app",
+    "runtime/vendor",
+    "runtime/manifest.json",
+    "runtime/upstream.sha256",
+    "cordis.patch.yml",
+    "legal",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:cad": "PYTHONDONTWRITEBYTECODE=1 runtime/Blender.app/Contents/Resources/4.5/python/bin/python3.11 test/cad.test.py",
+    "runtime:manifest": "node scripts/runtime-manifest.mjs",
+    "test:engine": "python3 scripts/check-host.py"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh-skill-filesystem": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1",
+    "@deepseek-ai/schemastery": "3.19.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-skill-filesystem": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "clipper2-ts": "2.0.1-18",
+    "esbuild": "0.28.2",
+    "three": "0.180.0"
+  },
+  "license": "MIT"
+}

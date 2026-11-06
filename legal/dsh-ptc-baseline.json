@@ -1,0 +1,100 @@
+{
+  "sourceRepository": "https://github.com/deepseek-ai/deepseek-harness",
+  "sourceCommit": "66491b05e3f05ad35bcdd4f6cd7ed26041d9e3db",
+  "sourcePath": "packages/bundle/web-app/presets/ptc.patch.yml",
+  "sha256": "ce02148b1fd575cc93071744180468cd305bdcd50dbfdd3b9b0605c5281d283d",
+  "preserved": "Every official PTC plugin row and its config, except the persona prefix; design provider and tools appended. Official shipped preset is not edited.",
+  "license": "MIT",
+  "licenseFile": "dsh-MIT-LICENSE",
+  "pluginRows": [
+    {
+      "id": "agent-instructions",
+      "sha256": "be5909d123c4a6bb7ef5b19922c591eddbf4a99ecddee15ea908f83608c2b6c0"
+    },
+    {
+      "id": "time-context",
+      "sha256": "22b2cf7133b0271864de53eb09f187e89e68a7ab26ed4339e4a5e2d6beb5c64a"
+    },
+    {
+      "id": "tool-bash",
+      "sha256": "377fb54b776eaad303bc5734630a65d5f3b7ef982fb0d6fc96dd23509f2132cc"
+    },
+    {
+      "id": "tool-pwsh",
+      "sha256": "00d41b2061f956c75a6c3a8ff1fa805452b3e253dc36bbbd6a71bac240e444bd"
+    },
+    {
+      "id": "tool-fs",
+      "sha256": "efeba689a6d7ab7c71d98857725229b8632995a2b98360adadfa61a72efc2096"
+    },
+    {
+      "id": "tool-fs-search",
+      "sha256": "8cefd2339a55397e573bf9b168eabe0615892a10e8915da7d583d42b98e16146"
+    },
+    {
+      "id": "tool-jobs",
+      "sha256": "b05a2b06bd26b5af9fabf8c96e0bfbf488ff985ad93fbc1a4bcb3a87993fce3e"
+    },
+    {
+      "id": "tool-schedule",
+      "sha256": "29ddfacd8a9178976ed9db9c3de183943693b548262784841702d314197751f4"
+    },
+    {
+      "id": "skill-filesystem",
+      "sha256": "ca3a247d28587a7e37aa87fee7ba9475e1e243188374e2d54bb6a6208d555972"
+    },
+    {
+      "id": "tool-skill",
+      "sha256": "e8f6816c162e3923751c9ef8557242a768fc785be09a4d391f107ae324019f6f"
+    },
+    {
+      "id": "command-goal",
+      "sha256": "fa3e9c3a0c52b87126081decd7f0e531fd555b1af2f2b65cf15b64a5455cc8f5"
+    },
+    {
+      "id": "tool-goal",
+      "sha256": "04c5d03502851e27df034d11bab34020d4ec1d81e85fde9c485a0cc48b19005f"
+    },
+    {
+      "id": "planning",
+      "sha256": "f0f7854d6977144c764dbf872bd81ac648fc09d99d1c584e973ba43021e83cb3"
+    },
+    {
+      "id": "compaction",
+      "sha256": "3529aa127e4090ae6ed57b20e4f79baa489aadab50caed954761333cf83d1b22"
+    },
+    {
+      "id": "delegation",
+      "sha256": "b946c7c3c6fd242a12e7aee7af715fef91a1fa1ec18007c862e0399701615f5a"
+    },
+    {
+      "id": "tool-ask-user",
+      "sha256": "71657594315f84f45bdfdd5cf266598f5c0ca040110d0f09f1fb730a90d57c9c"
+    },
+    {
+      "id": "tool-todo",
+      "sha256": "90dca339a86a2ff5c6d72553caa4be1bb03c0ddb947c3661fecc2eac5528acf4"
+    },
+    {
+      "id": "tool-web",
+      "sha256": "f5389a5a0593a14cb669680b072454f1b0e26cbdd2c45d7aee578a9e7c974c1f"
+    },
+    {
+      "id": "tool-executor-ptc",
+      "sha256": "e0b234267570bab66234ad044a0ed7153e187cb38326bd81ab7926326a5b34c6"
+    },
+    {
+      "id": "present",
+      "sha256": "f397a8fcf6c26e041c053cf96b9248c744270479a94b2971bc956903cab405d7"
+    },
+    {
+      "id": "tool-plugin-manager",
+      "sha256": "1342f807d61c097ebff91d4d8922f6d5a34c79f4e3fa74f9341319ff840ff385"
+    },
+    {
+      "id": "tool-plugin-market",
+      "sha256": "c37b03f7c15223c17b0b02ba4e7c562f4e3cb47901e2942d74de9a994d11b15c"
+    }
+  ],
+  "dshVersion": "0.2.2-rc.1"
+}

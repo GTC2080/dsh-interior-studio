@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "furniture": {
+    "chair": {
+      "label": "软垫餐椅",
+      "file": "models/chairCushion.glb",
+      "preview": "previews/chair.png",
+      "size": [
+        0.52,
+        0.55,
+        0.88
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0",
+      "orientation": {
+        "front": [
+          0,
+          -1
+        ],
+        "back": [
+          0,
+          1
+        ],
+        "meaning": "座位正面；back 为靠背方向",
+        "rotationConvention": "平面逆时针角度：0° 朝 -Y，90° 朝 +X，180° 朝 +Y，270° 朝 -X"
+      }
+    },
+    "sofa": {
+      "label": "双人沙发",
+      "file": "models/loungeSofa.glb",
+      "preview": "previews/sofa.png",
+      "size": [
+        2.1,
+        0.85,
+        0.82
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0",
+      "orientation": {
+        "front": [
+          0,
+          -1
+        ],
+        "back": [
+          0,
+          1
+        ],
+        "meaning": "座位正面；back 为靠背方向",
+        "rotationConvention": "平面逆时针角度：0° 朝 -Y，90° 朝 +X，180° 朝 +Y，270° 朝 -X"
+      }
+    },
+    "bed": {
+      "label": "双人床",
+      "file": "models/bedDouble.glb",
+      "preview": "previews/bed.png",
+      "size": [
+        1.6,
+        2.1,
+        0.75
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0",
+      "orientation": {
+        "front": [
+          0,
+          -1
+        ],
+        "back": [
+          0,
+          1
+        ],
+        "meaning": "床尾方向；back 为床头方向",
+        "rotationConvention": "平面逆时针角度：0° 朝 -Y，90° 朝 +X，180° 朝 +Y，270° 朝 -X"
+      }
+    },
+    "table": {
+      "label": "餐桌",
+      "file": "models/table.glb",
+      "preview": "previews/table.png",
+      "size": [
+        1.6,
+        0.9,
+        0.75
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0"
+    },
+    "coffee-table": {
+      "label": "茶几",
+      "file": "models/tableCoffee.glb",
+      "preview": "previews/coffee-table.png",
+      "size": [
+        1,
+        0.6,
+        0.4
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0"
+    },
+    "desk": {
+      "label": "书桌",
+      "file": "models/desk.glb",
+      "preview": "previews/desk.png",
+      "size": [
+        1.2,
+        0.6,
+        0.75
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0"
+    },
+    "bookcase": {
+      "label": "开放书柜",
+      "file": "models/bookcaseOpen.glb",
+      "preview": "previews/bookcase.png",
+      "size": [
+        0.8,
+        0.32,
+        1.8
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0"
+    },
+    "plant": {
+      "label": "盆栽",
+      "file": "models/pottedPlant.glb",
+      "preview": "previews/plant.png",
+      "size": [
+        0.45,
+        0.45,
+        1.1
+      ],
+      "source": "kenney-furniture-kit",
+      "license": "CC0-1.0"
+    }
+  },
+  "textures": {
+    "wood-floor": {
+      "color": "materials/WoodFloor051/WoodFloor051_1K-JPG_Color.jpg",
+      "roughness": "materials/WoodFloor051/WoodFloor051_1K-JPG_Roughness.jpg",
+      "normal": "materials/WoodFloor051/WoodFloor051_1K-JPG_NormalGL.jpg",
+      "metresPerRepeat": 2,
+      "source": "WoodFloor051",
+      "license": "CC0-1.0"
+    },
+    "concrete-fine": {
+      "color": "materials/Concrete034/Concrete034_1K-JPG_Color.jpg",
+      "roughness": "materials/Concrete034/Concrete034_1K-JPG_Roughness.jpg",
+      "normal": "materials/Concrete034/Concrete034_1K-JPG_NormalGL.jpg",
+      "metresPerRepeat": 2,
+      "source": "Concrete034",
+      "license": "CC0-1.0"
+    }
+  }
+}
