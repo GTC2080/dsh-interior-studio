@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "设计",
+    "description": "用对话设计室内和展位，核对 CAD 图纸，生成三维模型和效果图。",
+    "detail": "locale/intro.zh.md"
+  }
+}

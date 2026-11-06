@@ -1,7 +1,7 @@
 {
   "name": "dsh-interior-studio",
-  "version": "0.1.0-dev.38",
-  "description": "Local editable interior and exhibition scenes for DeepSeek Harness",
+  "version": "0.1.0-dev.39",
+  "description": "Design interiors and exhibition spaces through conversation, from CAD drawings to 3D models and renderings.",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -9,15 +9,20 @@
     "./tools": "./src/tools.js",
     "./client": "./lib/client.js",
     "./skills": "./src/skills.js",
-    "./skill-search": "./src/skill-search.js"
+    "./skill-search": "./src/skill-search.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "engines": {
     "node": ">=24.9.0",
     "dsh": "0.2.2-rc.1"
   },
+  "os": ["darwin"],
+  "cpu": ["arm64"],
   "dsh": {
     "bundle": {
-      "patch": "./cordis.patch.yml"
+      "patch": "./cordis.patch.yml",
+      "platforms": ["darwin"]
     },
     "client": {
       "platform": "web",
@@ -40,6 +45,9 @@
     "lib",
     "worker",
     "skills",
+    "locale",
+    "scripts/prepare-git-install.mjs",
+    "scripts/prepare-runtime.py",
     "assets",
     "runtime/Blender.app",
     "runtime/vendor",
@@ -51,7 +59,8 @@
     "NOTICE"
   ],
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "prepare": "node scripts/prepare-git-install.mjs"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.1.0",
