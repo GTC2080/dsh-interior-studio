@@ -24,5 +24,6 @@ This license covers the independently written Host, Client and development
 checks, except where otherwise noted. The Blender worker (worker/*.py) and
 the mesh_contacts.py review script are GPL-3.0-or-later; see
 legal/GPL-3.0-or-later.txt. The concept skill and its concept-and-moodboard
-reference are CC BY 4.0. Third-party components retain their own licenses;
-see NOTICE and legal/.
+reference are CC BY 4.0. When included, the Blender application is
+GPL-3.0-or-later; see legal/BLENDER-SOURCE.md. Third-party components retain
+their own licenses; see NOTICE and legal/.

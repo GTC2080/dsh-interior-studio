@@ -32,6 +32,8 @@ asset_catalog = json.loads((plugin_root / 'src/catalog.json').read_text())
 
 
 def asset_path(relative):
+    if not asset_root.is_dir():
+        raise ValueError('当前工程使用了未安装的本地家具或贴图库；请恢复素材库，或改用基础材质和通用构件')
     path = asset_root / relative
     if not path.resolve().is_relative_to(asset_root) or not path.is_file():
         raise ValueError('Unknown packaged asset')

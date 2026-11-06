@@ -1,6 +1,6 @@
 /** Metre-based, Z-up scene operations shared by the Host and deterministic checks. */
 import { randomUUID } from 'node:crypto';
-import { FURNITURE } from './catalog.js';
+import { FURNITURE, HAS_LOCAL_ASSETS } from './catalog.js';
 import {wallPoints,wallLength,arcPoints,polygonArea,pointInRing,simpleRing,ringsIntersect,furnitureFitsFloor,furnitureBlocksDoor} from './geometry.js';
 import {validateSolid,solidBounds,solidsOverlap,assetSolid,wallSolids} from './solids.js';
 import {validateModel,modelPrism,validateSurface,validatePresentation} from './refinement.js';
@@ -16,6 +16,8 @@ export const MATERIALS = Object.freeze({
   'wood-floor': { label: '实木地板', color: [1, 1, 1], swatch:[.67,.52,.35], roughness: 0.6, texture: 'wood-floor' },
   'concrete-fine': { label: '细纹混凝土', color: [1, 1, 1], swatch:[.48,.49,.47], roughness: 0.85, texture: 'concrete-fine' },
 });
+export const AVAILABLE_MATERIALS = HAS_LOCAL_ASSETS ? MATERIALS :
+  Object.freeze(Object.fromEntries(Object.entries(MATERIALS).filter(([,material])=>!material.texture)));
 
 export function check(condition, message) {
   if (!condition) throw new Error(message);
@@ -331,6 +333,7 @@ export function editScene(scene, selection, input) {
   if (input.action === 'material') {
     check(object.type!=='model','精细模型保留导入材质；请重新导入修改后的模型');
     check(Object.hasOwn(MATERIALS, input.material), '未知材质');
+    check(Object.hasOwn(AVAILABLE_MATERIALS, input.material), '此材质需要安装本地贴图库');
     if(MATERIALS[input.material].texture)candidate.schemaVersion=Math.max(2,candidate.schemaVersion);
     if (object.type === 'wall') {
       check(['side-a', 'side-b'].includes(selection.surfaceId), '请选择墙的一侧');

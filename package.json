@@ -1,6 +1,6 @@
 {
   "name": "dsh-interior-studio",
-  "version": "0.1.0-dev.37",
+  "version": "0.1.0-dev.38",
   "description": "Local editable interior and exhibition scenes for DeepSeek Harness",
   "type": "module",
   "main": "index.js",
@@ -78,5 +78,5 @@
     "esbuild": "0.28.2",
     "three": "0.180.0"
   },
-  "license": "MIT"
+  "license": "SEE LICENSE IN LICENSE"
 }

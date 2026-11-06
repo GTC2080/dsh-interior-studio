@@ -22,9 +22,15 @@ export async function verifyRuntime(root = PACKAGE_ROOT) {
       else check(declared.has(path),`运行载荷含未登记文件：${path}`);
     }
   };
-  await inventory('runtime/Blender.app');await inventory('runtime/vendor');await inventory('assets');
+  await inventory('runtime/Blender.app');await inventory('runtime/vendor');
+  const assets=await lstat(join(root,'assets')).catch(error=>{if(error.code!=='ENOENT')throw error;return null;});
+  if(assets) {
+    check(assets.isDirectory(),'本地素材库必须是实际目录');
+    await inventory('assets');
+  }
   for (const entry of manifest.entries) {
     check(!isAbsolute(entry.path) && !entry.path.split('/').includes('..'), '运行时清单路径无效');
+    if(!assets && entry.path.startsWith('assets/'))continue;
     const path = join(root, entry.path);
     const stat = await lstat(path);
     if (entry.link !== undefined) {

@@ -312,6 +312,7 @@ function StudioView({ sessionId, api, importFiles, openProjects, useTabInfo }) {
   const fileInput = useRef(null), loaded = useRef('');
   const snapshotSequence=useRef(0);
   const p = state?.project, report = state?.report, objects = state?.scene?.objects ?? [];
+  const hasFurniture=Object.keys(state?.furniture??{}).length>0;
   const drawing=state?.proposal?.type==='drawing'&&!state.proposal.stale?state.proposal:null;
   const brief=state?.proposal?.type==='brief'?state.proposal:null;
   const drawingScene=drawing?.scene??state?.scene;
@@ -461,7 +462,7 @@ function StudioView({ sessionId, api, importFiles, openProjects, useTabInfo }) {
           items={[
             {id:'new',label:'新建设计',icon:<IconPlusOutlineRegular/>},
             {id:'export',label:'导出工程',icon:<IconDownloadOutlineRegular/>,disabled:!exportTask},
-            {id:'furniture',label:'添加家具',icon:<IconPlusOutlineRegular/>,disabled:!p?.revision || p.readOnly},
+            ...(hasFurniture?[{id:'furniture',label:'添加家具',icon:<IconPlusOutlineRegular/>,disabled:!p?.revision || p.readOnly}]:[]),
             {id:'layers',label:'调整图纸识别',icon:<IconBrowseOutlineRegular/>,disabled:!report || !!p?.revision || p.readOnly},
             {type:'separator',id:'more-separator'},
             {id:'access',label:'模型访问',icon:<IconShieldOutlineRegular/>,disabled:!p},
@@ -509,7 +510,7 @@ function StudioView({ sessionId, api, importFiles, openProjects, useTabInfo }) {
     </main>
     <div className="is-bottom-tools">
     {!!p?.revision && viewMode === 'model' && <div className="is-contextbar">
-      <Button size="sm" className="is-icon" icon={<IconPlusOutlineRegular/>} title="添加家具" aria-label="添加家具" disabled={busy || p.readOnly} onClick={()=>{setFurnitureForm({x:'',y:'',rotation:'0'});setSheet('furniture');}}/>
+      {hasFurniture&&<Button size="sm" className="is-icon" icon={<IconPlusOutlineRegular/>} title="添加家具" aria-label="添加家具" disabled={busy || p.readOnly} onClick={()=>{setFurnitureForm({x:'',y:'',rotation:'0'});setSheet('furniture');}}/>}
       <PanelMenu label={selectedObject ? objectLabel(selectedObject,objects) : '选择对象'} icon={<IconBrowseOutlineRegular/>}
         disabled={busy || p.readOnly || !previewTask} selectedId={selectedObject?.id}
         items={objects.map(o => ({id:o.id,label:objectLabel(o,objects)}))} onSelect={id => select(id)}/>

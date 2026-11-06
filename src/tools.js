@@ -1,7 +1,7 @@
 /** Design operations appended to the complete official PTC preset. */
 import { defineTool } from '@deepseek-ai/dsh-tools';
-import {FURNITURE} from './catalog.js';
-import {MATERIALS} from './scene.js';
+import {FURNITURE,HAS_LOCAL_ASSETS} from './catalog.js';
+import {AVAILABLE_MATERIALS} from './scene.js';
 import {calculateGeometry} from './geometry-tools.js';
 import {CONSTRAINT_GROUPS} from './design-constraints.js';
 
@@ -11,7 +11,7 @@ const numeric = description => ({ type: 'number', required: true, description })
 const str = description => ({ type: 'string', required: true, description });
 const point = {type:'array',items:{type:'number'},required:true,description:'[x,y] 平面坐标，单位米'};
 const vector = {type:'array',items:{type:'number'},description:'恰好三个数值'};
-const material = {type:'string',enum:Object.keys(MATERIALS),description:'目录中的材质 ID'};
+const material = {type:'string',enum:Object.keys(AVAILABLE_MATERIALS),description:'当前可用的材质 ID'};
 const camerasParameter={type:'array',description:'提供时完整替换自定义相机列表，最多6个；不能覆盖标准视角',items:{type:'object',additionalProperties:false,properties:{key:str('相机编号，渲染时作为views的值'),label:{type:'string'},position:{...vector,required:true},target:{...vector,required:true},lens:{type:'number',description:'焦距10–150mm，默认35；局部取景不会自动包含全场'},purpose:{type:'string',enum:['overview','detail'],description:'overview要求主体完整入画；detail允许有意裁切'},subjects:{type:'array',items:{type:'string'},description:'1–32个要核对的对象key/ID；无主体时不声称覆盖通过'},focusPoints:{type:'array',items:{type:'array',items:{type:'number'}},description:'最多16个必须可见的世界XYZ米制表面点，按1mm核对视线；不能填对象内部或孔洞空心点。用于检查收口等细节遮挡'}}}};
 
 export function apply(ctx) {
@@ -111,13 +111,13 @@ export function apply(ctx) {
       swing:{type:'string',enum:['left','right'],description:'门扇朝墙路径的左侧或右侧开启'},wrap:{type:'boolean',description:'仅整圆墙的洞口跨起点时为 true'},
     }}},
     rooms:{type:'array',items:{type:'object',additionalProperties:false,properties:{name:str('房间名称'),point,material}}},
-    furniture:{type:'array',items:{type:'object',additionalProperties:false,properties:{
+    ...(HAS_LOCAL_ASSETS?{furniture:{type:'array',items:{type:'object',additionalProperties:false,properties:{
       key:{type:'string',description:'可选唯一编号，默认furniture_1等'},label:{type:'string',description:'可读对象名称'},
       asset:{type:'string',enum:Object.keys(FURNITURE),required:true},x:numeric('中心 X'),y:numeric('中心 Y'),rotation:{type:'number',description:'逆时针角度，度。椅子/沙发正面、床尾默认朝 -Y；90° 朝 +X，180° 朝 +Y，270° 朝 -X。床头为相反方向'},
       z:{type:'number',description:'底部标高，默认0；放在抬升地台上时填地台顶高'},
       faceTarget:{type:'string',description:'需要正面对向的对象key，可引用通用构件；按目录正面轴与目标投影检查，不自行旋转'},
       width:{type:'number'},depth:{type:'number'},height:{type:'number'},material,
-    }}},
+    }}}}:{}),
     components:{type:'array',description:'通用参数构件；总计最多24000轮廓采样点。输入不接受代码、脚本或本地文件路径。',items:{type:'object',additionalProperties:false,properties:{
       key:str('唯一编号，字母开头、字母数字或下划线，最多50字符'),label:{type:'string',description:'可读名称，最多100字符'},
       shape:{type:'string',enum:['box','cylinder','extrusion','text'],required:true},
@@ -141,7 +141,7 @@ export function apply(ctx) {
     height: numeric('高度，米'), thickness: numeric('墙厚，米'), openSides: { type: 'string', description: '开放面，逗号分隔；室内可为空' },
   }, (session, args, operation) => ctx.interiorStudio.propose(session,
     { ...args, openSides: args.openSides === undefined ? undefined : args.openSides.split(',').map(s => s.trim()).filter(Boolean) }, operation,true));
-  register('studio_furnish','在已确认空间中添加一件目录家具。先读 studio_context 的 furniture。省略坐标时寻找空位；碰撞或越界会拒绝。不替用户确认空间尺寸。',{
+  if(HAS_LOCAL_ASSETS)register('studio_furnish','在已确认空间中添加一件目录家具。先读 studio_context 的 furniture。省略坐标时寻找空位；碰撞或越界会拒绝。不替用户确认空间尺寸。',{
     expectedRevision:numeric('当前场景版本'),asset:str('目录中的家具 ID'),
     x:{type:'number',description:'中心 X，米；可与 Y 一起省略，自动寻找空位'},
     y:{type:'number',description:'中心 Y，米'},rotation:{type:'number',description:'平面角度，度，默认 0'},
@@ -149,7 +149,7 @@ export function apply(ctx) {
   },(session,args,operation)=>ctx.interiorStudio.furnish(session,args,operation,true));
   register('studio_edit', '仅修改冻结选择。material换材质；move移动目录物件或通用构件；transform调整目录物件位置/角度/尺寸；remove移除物件或构件。通用构件的形状和三维旋转通过新的CAD草案调整。旧版本/选择被拒绝，不能移除墙或地面。', {
     expectedRevision: numeric('studio_context 的当前版本'), selectionToken: str('studio_context 返回的选择令牌'),
-    action: str('material / move / transform / remove'), material: { type: 'string', description: '使用 studio_context materials 中的 ID；包括基础色和本地实木地板、细纹混凝土纹理' },
+    action: str('material / move / transform / remove'), material: { type: 'string', description: '使用 studio_context materials 中当前可用的 ID' },
     x: { type: 'number', description: '移动后的 X 米' }, y: { type: 'number', description: '移动后的 Y 米' },
     z:{type:'number',description:'目录物件底部标高/通用构件原点Z，米'},
     rotation:{type:'number',description:'transform 平面角度，度'},width:{type:'number',description:'transform 宽度，米'},

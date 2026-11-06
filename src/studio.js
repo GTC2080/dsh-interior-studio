@@ -3,8 +3,8 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, writeFile, chmod, readFile, rename, stat, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { ProjectStore, hash } from './store.js';
-import { proposal, sceneFromProposal, sceneFromCad, editScene, furnishScene, validateScene, placementConflicts, MATERIALS, check } from './scene.js';
-import { FURNITURE } from './catalog.js';
+import { proposal, sceneFromProposal, sceneFromCad, editScene, furnishScene, validateScene, placementConflicts, MATERIALS, AVAILABLE_MATERIALS, check } from './scene.js';
+import { FURNITURE, AVAILABLE_FURNITURE, HAS_LOCAL_ASSETS } from './catalog.js';
 import {drawingScene,drawingReport} from './drawing.js';
 import {reviewFurniture} from './furniture-review.js';
 import {reviewSolids} from './solids.js';
@@ -77,7 +77,7 @@ export class Studio {
     });
   }
   snapshot(session, id = this.store.bound(session)) {
-    if (!id) return { project: null, projects: this.store.list(), materials: MATERIALS, furniture: FURNITURE };
+    if (!id) return { project: null, projects: this.store.list(), materials: AVAILABLE_MATERIALS, furniture: AVAILABLE_FURNITURE };
     const project = this.store.project(id), scene = this.store.read(id);
     const pending = this.store.db.prepare('SELECT data FROM proposals WHERE project=?').get(id);
     const imports = this.store.db.prepare('SELECT report FROM imports WHERE project=? ORDER BY rowid DESC LIMIT 1').get(id);
@@ -100,7 +100,7 @@ export class Studio {
       tasks: this.store.db.prepare('SELECT * FROM tasks WHERE project=? ORDER BY rowid DESC LIMIT 12').all(id).map(t => ({ ...t, detail: JSON.parse(t.detail) })),
       gallery,galleryCoverage:galleryCoverage(viewRequirements,gallery),recommendedViews:recommendedRenderViews(viewRequirements),
       selection: (() => { try { return this.store.selection(session, id, project.revision); } catch { return null; } })(),
-      projects: this.store.list(), materials: MATERIALS, furniture: FURNITURE };
+      projects: this.store.list(), materials: AVAILABLE_MATERIALS, furniture: AVAILABLE_FURNITURE };
   }
   gallery(id,revision) {
     const scene=this.store.read(id,revision),current=new Map(),runtime=this.engine.manifest?.blenderVersion??'test';
@@ -153,8 +153,9 @@ export class Studio {
     check(input.detail===undefined||['summary','full','index','objects'].includes(input.detail),'读取范围须为summary/full/index/objects');
     check(input.target===undefined||['current','draft'].includes(input.target),'读取目标须为current/draft');
     const id = this.store.bound(session);
-    const catalog={furniture:Object.entries(FURNITURE).map(([id,m])=>({id,label:m.label,size:m.size,orientation:m.orientation})),
-      materials:Object.entries(MATERIALS).map(([id,m])=>({id,...m})),
+    const catalog={furniture:Object.entries(AVAILABLE_FURNITURE).map(([id,m])=>({id,label:m.label,size:m.size,orientation:m.orientation})),
+      materials:Object.entries(AVAILABLE_MATERIALS).map(([id,m])=>({id,...m})),
+      ...(!HAS_LOCAL_ASSETS?{catalogNote:'可用基础材质、参数构件和用户导入的模型；当前未安装可选家具和贴图库。'}:{}),
       modeling:{geometryTool:'studio_geometry',geometryOperations:['fillet','arc','check_profile','offset','measure','orientation'],shapes:['box','cylinder','extrusion','text'],planes:['xy','xz','yz'],minimumComponentThickness:.001,
         position:'component origin XYZ; box/cylinder origin is base centre; extrusion origin offsets profile coordinates',
         color:'components.color is RGB in [0,1]; optional roughness, metallic and emission',
@@ -396,6 +397,10 @@ export class Studio {
   async prepareDrawing(session,input,operation,signal,model=false,refinement) {
     signal?.throwIfAborted();
     const draft=refinement?.scene??drawingScene(input);
+    if(!HAS_LOCAL_ASSETS)check(!draft.objects.some(object=>
+      object.type==='asset'&&Object.hasOwn(FURNITURE,object.asset)||
+      [object.material,...Object.values(object.materials??{})].some(id=>MATERIALS[id]?.texture)),
+    '此方案使用了未安装的家具或贴图，请改用通用构件、导入模型或基础材质');
     let id=this.store.bound(session);
     if(!id)id=this.store.create(session,input.name,input.kind,operation+':create').id;
     const request=refinement?.request??{id,...input};
@@ -622,6 +627,7 @@ export class Studio {
   furnish(session, input, operation, model=false) {
     const id=this.store.bound(session);check(id,'没有活动工程');
     if(model)check(this.modelAllowed(session,id),'项目数据未获当前模型外发授权');
+    check(HAS_LOCAL_ASSETS,'当前未安装可选家具库，请使用通用构件或导入模型');
     return this.store.once(session,operation,{id,...input},()=>{
       const p=this.store.assertWriter(session,id,input.expectedRevision);
       check(p.revision>0,'请先确认空间尺寸并建模');
@@ -911,8 +917,8 @@ export class Studio {
       case 'analyze': return this.trackCad(this.analyzeCad(session,input,operation,signal));
       case 'furnish': return this.furnish(session,input,operation);
       case 'catalog-preview': {
-        check(Object.hasOwn(FURNITURE,input.asset),'未知家具');
-        const path=new URL('../assets/'+FURNITURE[input.asset].preview,import.meta.url);
+        check(Object.hasOwn(AVAILABLE_FURNITURE,input.asset),'家具未安装或不可用');
+        const path=new URL('../assets/'+AVAILABLE_FURNITURE[input.asset].preview,import.meta.url);
         return {base64:(await readFile(path)).toString('base64')};
       }
       case 'confirm': return this.confirm(session, input, operation);

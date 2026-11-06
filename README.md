@@ -2,7 +2,7 @@
 
 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的独立设计插件，面向懂自己的空间、却不一定会画 CAD 或操作 Blender 的人。左侧用日常语言讨论需求，右侧核对图纸、查看模型和挑选效果图。适用于室内布置、装潢方案和展位设计。
 
-当前为 **开发预览版**（`0.1.0-dev.37`），面向 Apple Silicon Mac 上的 DSH Web。图纸和效果图供方案沟通与核对，不能作为施工验收依据。
+当前为 **开发预览版**（`0.1.0-dev.38`），面向 Apple Silicon Mac 上的 DSH Web。图纸和效果图供方案沟通与核对，不能作为施工验收依据。
 
 ## 从需求到效果图
 
@@ -15,20 +15,15 @@
 
 ## 在 Mac 上安装开发预览
 
-需要 Apple Silicon Mac、官方 **DSH 0.2.2-rc.1** 的 Web profile，以及 **Node.js ≥24.9.0**、Python 3 和 Git。先确认在终端能运行 `dsh`，且它使用你的目标 DSH 数据目录。
+需要 Apple Silicon Mac 和 **DeepSeek Harness 0.2.2-rc.1** 的 Web profile。
 
-```sh
-git clone https://github.com/GTC2080/dsh-interior-studio.git
-cd dsh-interior-studio
-python3 scripts/prepare-runtime.py
-dsh plugin --profile web add "link:$PWD"
-```
+在 DSH 的「插件管理」选择安装，将 [Mac 安装包](https://github.com/GTC2080/dsh-interior-studio/releases/download/v0.1.0-dev.38/dsh-interior-studio-0.1.0-dev.38-macos-arm64.tgz) 的链接粘贴到安装框并确认。重启 DSH Web 后新建「设计」会话。也可以先下载该文件，再在安装框填写其本机绝对路径。
 
-准备脚本从上游取得 Blender 4.5.15 LTS、CAD 依赖和目录素材，校验文件哈希与 Blender 的 macOS 签名，再存到本地。首次装配需要网络和约 1.2 GB 可用空间，临时下载会清理。安装后由 DSH 在后台启动私有 Blender。
+**这个包自带官方 Blender 4.5.15 LTS 和 DXF 依赖。** Blender 随插件存放，由 DSH 在后台启动。无需额外下载或安装 Blender、Python，也无需运行源码准备脚本。包内包含基础材质，可用参数构件建模或导入自己的资源。旧工程若使用了可选家具或贴图，需要本机仍有相应素材。
 
-如果素材站点无法直接下载，可从 [Kenney Furniture Kit](https://kenney.nl/assets/furniture-kit) 手动取得官方 ZIP，运行 `python3 scripts/prepare-runtime.py --furniture-zip /path/to/kenney_furniture-kit.zip`。已有完整本地素材或同版本官方 Blender App 时，也可分别用 `--assets-dir /path/to/assets`、`--blender-app /path/to/Blender.app` 复用；脚本会校验内容。
+命令行也可安装已下载的包：`dsh plugin --profile web add /absolute/path/to/dsh-interior-studio-0.1.0-dev.38-macos-arm64.tgz`。从 DSH 移除插件时，本地工程保留。
 
-仓库已包含编译后的前端，安装无需运行 npm 构建。安装后重新启动 DSH Web，新建「设计」会话。链接安装依赖当前源码目录，请保留该目录。卸载命令为 `dsh plugin --profile web remove dsh-interior-studio`，卸载保留用户工程。
+[发行说明与校验值](https://github.com/GTC2080/dsh-interior-studio/releases/tag/v0.1.0-dev.38) · [Blender 对应源码](legal/BLENDER-SOURCE.md)
 
 ## 设计工具与技能
 
@@ -40,14 +35,18 @@ dsh plugin --profile web add "link:$PWD"
 
 默认工程保存在用户主目录下的 `DSH Interior Projects`。CAD、版本、模型和效果图由本机保存，删除聊天不会删除工程。设计工具读取已有工程摘要前，需要对当前模型路由授权；导入原件不会被设计工具作为聊天附件发送。PTC 的其他通用工具遵循 DSH 宿主的权限。
 
-## 开发
+## 从源码开发
 
 ```sh
+git clone https://github.com/GTC2080/dsh-interior-studio.git
+cd dsh-interior-studio
 npm ci --ignore-scripts
 npm run build
+python3 scripts/prepare-runtime.py --core-only
+dsh plugin --profile web add "link:$PWD"
 ```
 
-公开仓库只保留插件源码、编译后的前端、设计技能和安装所需文件。模型、缩略图、贴图和运行时依赖由准备脚本放在本机；测试、样本和工程文件不随仓库发布。
+如需本地可选素材库，可省略 `--core-only`。已持有同版本官方 Blender App、完整素材目录或 [Kenney 官方 ZIP](https://kenney.nl/assets/furniture-kit) 时，可以用准备脚本的 `--blender-app`、`--assets-dir` 或 `--furniture-zip` 复用。公开 Git 源码树只保留插件本体；家具模型、缩略图、贴图、测试、样本和工程文件不随安装包发布。
 
 ## 许可
 

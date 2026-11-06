@@ -103,6 +103,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--blender-app", type=Path, help="reuse the exact official Blender.app instead of downloading the DMG")
     assets_input = parser.add_mutually_exclusive_group()
+    assets_input.add_argument("--core-only", action="store_true", help="prepare Blender and CAD dependencies without the optional asset library")
     assets_input.add_argument("--assets-dir", type=Path, help="reuse a complete local assets directory")
     assets_input.add_argument("--furniture-zip", type=Path, help="use the official Furniture Kit ZIP downloaded manually")
     args = parser.parse_args()
@@ -126,7 +127,7 @@ def main():
 
             stage = Path(directory)
             targets = []
-            if not has_assets:
+            if not has_assets and not args.core_only:
                 prepare_assets(stage, manifest, args)
                 targets.append(assets)
             if not has_runtime:
@@ -171,7 +172,8 @@ def main():
                 for target in reversed(installed):
                     target.rename(stage / target.name)
                 raise
-            print(f"Verified Blender {manifest['blenderVersion']}, CAD dependencies and local resources.")
+            print(f"Verified Blender {manifest['blenderVersion']}, CAD dependencies"
+                  + (" and local resources." if assets.is_dir() else "."))
         finally:
             lock.rmdir()
 
