@@ -4,7 +4,7 @@
 
 ## 让 DSH 安装
 
-在 Apple 芯片 Mac 的 DSH Web 中打开「标准」会话，发送：
+在 Apple 芯片 Mac 的 DSH 中打开「标准」会话，发送：
 
 > 帮我安装这个插件：https://github.com/GTC2080/dsh-interior-studio
 
