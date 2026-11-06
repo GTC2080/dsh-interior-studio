@@ -1,6 +1,0 @@
-WoodFloor051 and Concrete034 by ambientCG.
-Licensed under Creative Commons CC0 1.0 Universal.
-Original 1K JPG color, roughness and OpenGL normal maps are included unmodified.
-https://docs.ambientcg.com/license/
-https://creativecommons.org/publicdomain/zero/1.0/
-Texture repeat size is a plugin design default, not a surveyed dimension.

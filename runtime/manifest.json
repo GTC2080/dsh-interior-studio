@@ -7,7 +7,7 @@
   "source": "https://download.blender.org/release/Blender4.5/blender-4.5.15-macos-arm64.dmg",
   "upstreamSha256": "bfbc0bda099d1ab7aef0992a584f872f58bed9bb491210ad45f9ca071aa2e688",
   "distribution": "development-only; DWG, final carrier signing and corresponding source gate not satisfied",
-  "bytes": 853639859,
+  "bytes": 853636116,
   "entries": [
     {
       "path": "runtime/Blender.app/Contents/Info.plist",
@@ -37292,12 +37292,6 @@
       "bytes": 160429,
       "executable": false,
       "sha256": "433d11d170d3a24d2eb065ebc1bfe848cea7e3d7ce68567ab52bea2d4c2f7ed8"
-    },
-    {
-      "path": "assets/catalog.json",
-      "bytes": 3743,
-      "executable": false,
-      "sha256": "3074a9e60c5f090e211b131bf6898e7c7239a3d9bf5b561f445df5223d39bc7c"
     },
     {
       "path": "assets/materials/Concrete034/Concrete034_1K-JPG_Color.jpg",

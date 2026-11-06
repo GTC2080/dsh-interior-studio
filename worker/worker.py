@@ -26,8 +26,9 @@ from refinement import import_model, project_model, model_audit, apply_surface, 
 from elevation import project_elevation
 from quality import scene_meshes, connection_review, camera_review_for_view, image_review, review_support_ranges, review_contact_points
 
-asset_root = Path(__file__).resolve().parents[1] / 'assets'
-asset_catalog = json.loads((asset_root / 'catalog.json').read_text())
+plugin_root = Path(__file__).resolve().parents[1]
+asset_root = plugin_root / 'assets'
+asset_catalog = json.loads((plugin_root / 'src/catalog.json').read_text())
 
 
 def asset_path(relative):

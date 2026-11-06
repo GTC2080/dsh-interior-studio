@@ -11,4 +11,12 @@ runtime/*.zip
 runtime/Blender.app/
 runtime/vendor/
 runtime/.prepare-*/
-/fixtures/public/floorplan.dxf
+/assets/
+/fixtures/
+/test/
+/scripts/check-*.py
+/scripts/generate-fixtures.py
+/scripts/runtime-manifest.mjs
+/runtime/upstream.sha256
+/legal/kenney-CC0.txt
+/legal/ambientCG-CC0.txt

@@ -24,7 +24,9 @@ python3 scripts/prepare-runtime.py
 dsh plugin --profile web add "link:$PWD"
 ```
 
-准备脚本从 Blender 官方发行源下载固定的 4.5.15 LTS，校验 SHA-256 和 macOS 签名，再装配并核对私有 CAD 依赖。若已持有同版本的官方 Apple Silicon App，可以用 `--blender-app /path/to/Blender.app` 复用。第一次装配需要网络与约 1.2 GB 可用磁盘空间；临时下载在装配结束后清理。使用插件时由 DSH 在后台启动私有 Blender。
+准备脚本从上游取得 Blender 4.5.15 LTS、CAD 依赖和目录素材，校验文件哈希与 Blender 的 macOS 签名，再存到本地。首次装配需要网络和约 1.2 GB 可用空间，临时下载会清理。安装后由 DSH 在后台启动私有 Blender。
+
+如果素材站点无法直接下载，可从 [Kenney Furniture Kit](https://kenney.nl/assets/furniture-kit) 手动取得官方 ZIP，运行 `python3 scripts/prepare-runtime.py --furniture-zip /path/to/kenney_furniture-kit.zip`。已有完整本地素材或同版本官方 Blender App 时，也可分别用 `--assets-dir /path/to/assets`、`--blender-app /path/to/Blender.app` 复用；脚本会校验内容。
 
 仓库已包含编译后的前端，安装无需运行 npm 构建。安装后重新启动 DSH Web，新建「设计」会话。链接安装依赖当前源码目录，请保留该目录。卸载命令为 `dsh plugin --profile web remove dsh-interior-studio`，卸载保留用户工程。
 
@@ -43,12 +45,10 @@ dsh plugin --profile web add "link:$PWD"
 ```sh
 npm ci --ignore-scripts
 npm run build
-npm test
-npm run test:cad
 ```
 
-`test:cad` 和部分模型检查需要先准备私有运行时。需要官方 DSH 源码的宿主测试在独立源码仓库中会标为跳过；未随仓库分发的可选 CAD 样本也会单独标为跳过。图纸测试使用合成数据与有许可的 [FloorPlanner 样本](fixtures/public/sources.json)。
+公开仓库只保留插件源码、编译后的前端、设计技能和安装所需文件。模型、缩略图、贴图和运行时依赖由准备脚本放在本机；测试、样本和工程文件不随仓库发布。
 
 ## 许可
 
-插件独立编写的 Host 和 Client 使用 MIT；Blender Worker 使用 GPL-3.0-or-later。技能、素材和随附依赖的许可与归属见 [LICENSE](LICENSE)、[NOTICE](NOTICE) 和 [legal/](legal/)。公开仓库不分发 Blender 应用、Python wheel 或装配后的二进制包。
+插件独立编写的 Host 和 Client 使用 MIT；Blender Worker 使用 GPL-3.0-or-later。技能和依赖的许可与归属见 [LICENSE](LICENSE)、[NOTICE](NOTICE) 和 [legal/](legal/)。

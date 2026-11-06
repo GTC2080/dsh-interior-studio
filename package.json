@@ -44,7 +44,6 @@
     "runtime/Blender.app",
     "runtime/vendor",
     "runtime/manifest.json",
-    "runtime/upstream.sha256",
     "cordis.patch.yml",
     "legal",
     "README.md",
@@ -52,11 +51,7 @@
     "NOTICE"
   ],
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "test": "node --test test/*.test.mjs",
-    "test:cad": "PYTHONDONTWRITEBYTECODE=1 runtime/Blender.app/Contents/Resources/4.5/python/bin/python3.11 test/cad.test.py",
-    "runtime:manifest": "node scripts/runtime-manifest.mjs",
-    "test:engine": "python3 scripts/check-host.py"
+    "build": "node scripts/build.mjs"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.1.0",
