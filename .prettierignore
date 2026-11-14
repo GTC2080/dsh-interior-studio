@@ -1,0 +1,15 @@
+lib/
+dist/
+runtime/
+assets/
+fixtures/
+evidence/
+legal/
+skills/
+locale/
+node_modules/
+package-lock.json
+src/catalog.json
+*.css
+*.py
+*.md
