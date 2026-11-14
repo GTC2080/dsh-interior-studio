@@ -4,6 +4,8 @@
 
 ## 让 DSH 安装
 
+当前插件支持 DSH `0.2.2-rc.3`，适用于 Apple 芯片 Mac。升级 DSH 前请检查插件的 `engines.dsh` 是否包含目标版本。
+
 在 Apple 芯片 Mac 的 DSH 中打开「标准」会话，发送：
 
 > 帮我安装这个插件：https://github.com/GTC2080/dsh-interior-studio
