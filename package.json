@@ -1,6 +1,6 @@
 {
   "name": "dsh-interior-studio",
-  "version": "0.1.0-dev.39",
+  "version": "0.1.0-dev.40",
   "description": "Design interiors and exhibition spaces through conversation, from CAD drawings to 3D models and renderings.",
   "type": "module",
   "main": "index.js",
@@ -15,7 +15,7 @@
   },
   "engines": {
     "node": ">=24.9.0",
-    "dsh": "0.2.2-rc.1"
+    "dsh": "0.2.2-rc.3"
   },
   "os": ["darwin"],
   "cpu": ["arm64"],
@@ -64,8 +64,8 @@
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.1.0",
-    "@deepseek-ai/dsh-skill-filesystem": "0.2.2-rc.1",
-    "@deepseek-ai/dsh-tools": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-skill-filesystem": "0.2.2-rc.3",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.3",
     "@deepseek-ai/schemastery": "3.19.0"
   },
   "peerDependenciesMeta": {

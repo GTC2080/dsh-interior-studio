@@ -1,8 +1,8 @@
 {
   "sourceRepository": "https://github.com/deepseek-ai/deepseek-harness",
-  "sourceCommit": "66491b05e3f05ad35bcdd4f6cd7ed26041d9e3db",
+  "sourceCommit": "38a6a5c965aa99ab525161efb7cc5cf1fe62fced",
   "sourcePath": "packages/bundle/web-app/presets/ptc.patch.yml",
-  "sha256": "ce02148b1fd575cc93071744180468cd305bdcd50dbfdd3b9b0605c5281d283d",
+  "sha256": "838665e063dc8bcab4caf24e41ec848373c434df4262feb981306944e1cec7fd",
   "preserved": "Every official PTC plugin row and its config, except the persona prefix; design provider and tools appended. Official shipped preset is not edited.",
   "license": "MIT",
   "licenseFile": "dsh-MIT-LICENSE",
@@ -65,7 +65,7 @@
     },
     {
       "id": "delegation",
-      "sha256": "b946c7c3c6fd242a12e7aee7af715fef91a1fa1ec18007c862e0399701615f5a"
+      "sha256": "3b93179ea2a2255695027c93000c4bdaa296ca663d681695baf2d0c226c5728a"
     },
     {
       "id": "tool-ask-user",
@@ -88,6 +88,10 @@
       "sha256": "f397a8fcf6c26e041c053cf96b9248c744270479a94b2971bc956903cab405d7"
     },
     {
+      "id": "tool-office",
+      "sha256": "321168a32c5a805b6807334d379de2757dd3a25c08e92345ed31ba59907613ff"
+    },
+    {
       "id": "tool-plugin-manager",
       "sha256": "1342f807d61c097ebff91d4d8922f6d5a34c79f4e3fa74f9341319ff840ff385"
     },
@@ -96,5 +100,5 @@
       "sha256": "c37b03f7c15223c17b0b02ba4e7c562f4e3cb47901e2942d74de9a994d11b15c"
     }
   ],
-  "dshVersion": "0.2.2-rc.1"
+  "dshVersion": "0.2.2-rc.3"
 }
